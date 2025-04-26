@@ -1,0 +1,28 @@
+{
+    "manifest_version": 3,
+    "name": "Sistem Firmware Analiz Aracı",
+    "version": "1.0",
+    "description": "Belirtilen sistem firmware bilgisini alır ve ChatGPT ile analiz eder.",
+    "permissions": [
+      "storage", 
+      "scripting",
+      "activeTab",
+      "declarativeContent"
+    ],
+    "host_permissions": [
+      "https://api.openai.com/*"    
+    ],
+    "options_page": "options.html",
+    "background": {
+      "service_worker": "background.js"
+    },
+    "content_scripts": [
+      {
+        "matches": ["<all_urls>"],
+        "js": ["content.js"]
+      }
+    ],
+    "action": {
+      "default_title": "Firmware Analizi Ayarları"
+    }
+  }

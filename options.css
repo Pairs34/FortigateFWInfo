@@ -1,0 +1,153 @@
+/* Genel Reset ve Font Ayarı */
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #f4f7f9; /* Açık gri arka plan */
+    margin: 0;
+    padding: 20px;
+    display: flex; /* Konteyneri ortalamak için */
+    justify-content: center;
+    align-items: flex-start; /* Sayfa uzunsa üste hizala */
+    min-height: 100vh;
+    color: #333;
+    font-size: 14px;
+}
+
+/* Ana Konteyner (Kart Görünümü) */
+.container {
+    background-color: #ffffff;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    max-width: 600px;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Başlık */
+h1 {
+    color: #2c3e50; /* Koyu mavi/gri */
+    font-size: 24px;
+    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 30px;
+    text-align: center;
+    border-bottom: 1px solid #e0e0e0;
+    padding-bottom: 15px;
+}
+
+/* Form Grupları Arası Boşluk */
+.form-group {
+    margin-bottom: 25px;
+}
+
+/* Etiketler (Label) */
+label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: #555;
+}
+
+input[type="url"],
+#apiKey /* API anahtarı alanını ID ile hedefle */
+{
+    width: 100%;
+    padding: 12px 15px; /* Temel padding */
+    border: 1px solid #dcdcdc;
+    border-radius: 6px;
+    box-sizing: border-box; /* Padding ve border'ı genişliğe dahil et */
+    font-size: 14px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    /* type değişse bile geçerli olacak temel stiller */
+}
+
+/* API Anahtarı Alanına Özel Stil (Buton için sağ boşluk) */
+#apiKey {
+    padding-right: 45px !important; /* Buton için sağda boşluk bırak (tip değişse bile) */
+                                    /* !important eklemek, başka bir kuralın üzerine yazmasını engelleyebilir, */
+                                    /* ancak genellikle ID seçicisi yeterince güçlüdür. Sorun devam ederse deneyin. */
+}
+
+/* Odaklanma (Focus) Stilleri */
+input[type="url"]:focus,
+#apiKey:focus { /* ID ile hedefle */
+    border-color: #007bff;
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.15);
+    outline: none;
+}
+
+/* Şifre Konteyneri ve Göster/Gizle Butonu stilleri aynı kalabilir */
+.password-container {
+    position: relative;
+    display: flex;
+}
+
+/* Butonun input ile üst üste binmemesi için padding-right yukarıda #apiKey'e eklendi */
+
+#toggleApiKey {
+    position: absolute;
+    right: 1px;
+    top: 1px;
+    bottom: 1px;
+    width: 40px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    color: #888;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0 5px 5px 0;
+    padding: 0;
+}
+#toggleApiKey:hover {
+    color: #333;
+}
+#toggleApiKey svg {
+     width: 18px;
+     height: 18px;
+}
+
+
+/* Kaydet Butonu */
+#saveButton {
+    display: block; /* Tam genişlik kapla */
+    width: 100%;
+    background-color: #007bff; /* Ana mavi renk */
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    margin-top: 15px; /* Form gruplarından sonra boşluk */
+}
+
+#saveButton:hover {
+    background-color: #0056b3; /* Hover'da koyu mavi */
+    box-shadow: 0 4px 10px rgba(0, 123, 255, 0.2);
+}
+
+#saveButton:active {
+     background-color: #004085; /* Tıklama anı */
+}
+
+
+/* Durum Mesajı Alanı */
+#status {
+    margin-top: 20px;
+    font-weight: 500;
+    text-align: center;
+    min-height: 20px; /* Boşken yer kaplasın */
+    font-size: 14px;
+}
+
+/* Hata durumu için (JS ile eklenecek sınıf) */
+#status.success {
+    color: #28a745; /* Yeşil */
+}
+#status.error {
+    color: #dc3545; /* Kırmızı */
+}
